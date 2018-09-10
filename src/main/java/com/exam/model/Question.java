@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * 
+ * This is master table of all the question.  
  * @author Tejas
  *
  */
@@ -29,19 +29,19 @@ public class Question implements Serializable {
 	@Column(name = "question")
 	private String question;
 
-	@Column(name = "option_1")
-	private String option1;
+	@Column(name = "A")
+	private String optionA;
 
-	@Column(name = "option_2")
-	private String option2;
+	@Column(name = "B")
+	private String optionB;
 
-	@Column(name = "option_3")
-	private String option3;
+	@Column(name = "C")
+	private String optionC;
 
-	@Column(name = "option_4")
-	private String option4;
+	@Column(name = "D")
+	private String optionD;
 
-	@Column(name = "answer_option")
+	@Column(name = "answer")
 	@Enumerated(EnumType.STRING)
 	private AnswerOption answerOption;
 
@@ -70,8 +70,7 @@ public class Question implements Serializable {
 	}
 
 	/**
-	 * @param id
-	 *            the id to set
+	 * @param id the id to set
 	 */
 	public void setId(long id) {
 		this.id = id;
@@ -85,71 +84,66 @@ public class Question implements Serializable {
 	}
 
 	/**
-	 * @param question
-	 *            the question to set
+	 * @param question the question to set
 	 */
 	public void setQuestion(String question) {
 		this.question = question;
 	}
 
 	/**
-	 * @return the option1
+	 * @return the optionA
 	 */
-	public String getOption1() {
-		return option1;
+	public String getOptionA() {
+		return optionA;
 	}
 
 	/**
-	 * @param option1
-	 *            the option1 to set
+	 * @param optionA the optionA to set
 	 */
-	public void setOption1(String option1) {
-		this.option1 = option1;
+	public void setOptionA(String optionA) {
+		this.optionA = optionA;
 	}
 
 	/**
-	 * @return the option2
+	 * @return the optionB
 	 */
-	public String getOption2() {
-		return option2;
+	public String getOptionB() {
+		return optionB;
 	}
 
 	/**
-	 * @param option2
-	 *            the option2 to set
+	 * @param optionB the optionB to set
 	 */
-	public void setOption2(String option2) {
-		this.option2 = option2;
+	public void setOptionB(String optionB) {
+		this.optionB = optionB;
 	}
 
 	/**
-	 * @return the option3
+	 * @return the optionC
 	 */
-	public String getOption3() {
-		return option3;
+	public String getOptionC() {
+		return optionC;
 	}
 
 	/**
-	 * @param option3
-	 *            the option3 to set
+	 * @param optionC the optionC to set
 	 */
-	public void setOption3(String option3) {
-		this.option3 = option3;
+	public void setOptionC(String optionC) {
+		this.optionC = optionC;
 	}
 
 	/**
-	 * @return the option4
+	 * @return the optionD
 	 */
-	public String getOption4() {
-		return option4;
+	public String getOptionD() {
+		return optionD;
 	}
 
 	/**
-	 * @param option4
-	 *            the option4 to set
+	 * @param optionD the optionD to set
 	 */
-	public void setOption4(String option4) {
-		this.option4 = option4;
+	public void setOptionD(String optionD) {
+		this.optionD = optionD;
 	}
 
 	/**
@@ -160,8 +154,7 @@ public class Question implements Serializable {
 	}
 
 	/**
-	 * @param answerOption
-	 *            the answerOption to set
+	 * @param answerOption the answerOption to set
 	 */
 	public void setAnswerOption(AnswerOption answerOption) {
 		this.answerOption = answerOption;
@@ -175,8 +168,7 @@ public class Question implements Serializable {
 	}
 
 	/**
-	 * @param answerDescription
-	 *            the answerDescription to set
+	 * @param answerDescription the answerDescription to set
 	 */
 	public void setAnswerDescription(String answerDescription) {
 		this.answerDescription = answerDescription;
@@ -190,8 +182,7 @@ public class Question implements Serializable {
 	}
 
 	/**
-	 * @param questionType
-	 *            the questionType to set
+	 * @param questionType the questionType to set
 	 */
 	public void setQuestionType(QuestionType questionType) {
 		this.questionType = questionType;
@@ -205,8 +196,7 @@ public class Question implements Serializable {
 	}
 
 	/**
-	 * @param questionLevel
-	 *            the questionLevel to set
+	 * @param questionLevel the questionLevel to set
 	 */
 	public void setQuestionLevel(QuestionLevel questionLevel) {
 		this.questionLevel = questionLevel;
@@ -220,8 +210,7 @@ public class Question implements Serializable {
 	}
 
 	/**
-	 * @param askInYears
-	 *            the askInYears to set
+	 * @param askInYears the askInYears to set
 	 */
 	public void setAskInYears(String askInYears) {
 		this.askInYears = askInYears;
@@ -234,14 +223,14 @@ public class Question implements Serializable {
 		builder.append(id);
 		builder.append(", question=");
 		builder.append(question);
-		builder.append(", option1=");
-		builder.append(option1);
-		builder.append(", option2=");
-		builder.append(option2);
-		builder.append(", option3=");
-		builder.append(option3);
-		builder.append(", option4=");
-		builder.append(option4);
+		builder.append(", optionA=");
+		builder.append(optionA);
+		builder.append(", optionB=");
+		builder.append(optionB);
+		builder.append(", optionC=");
+		builder.append(optionC);
+		builder.append(", optionD=");
+		builder.append(optionD);
 		builder.append(", answerOption=");
 		builder.append(answerOption);
 		builder.append(", answerDescription=");

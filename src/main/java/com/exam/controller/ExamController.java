@@ -2,6 +2,8 @@ package com.exam.controller;
 
 import java.util.List;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
@@ -32,20 +34,20 @@ public class ExamController {
 	@Autowired
 	private UserService userService;
 
-	@GetMapping(value="/questions/{userId}",  produces=MediaType.APPLICATION_JSON_VALUE)
-	public List<Question> getQuestion(@PathVariable long userId){
-		List<Question> questions = examService.getQuestions(userId);
+	@GetMapping(value="/questions/{examId}/{userId}",  produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<Question> getQuestion(@PathVariable long examId, @PathVariable long userId){
+		List<Question> questions = examService.getQuestions(examId, userId);
 		return questions;
 		//return null;
 	}
 	
-	@RequestMapping(value="/admin/questions", method = RequestMethod.GET)
-	public ModelAndView home(){
+	@RequestMapping(value="/admin/questions/{examId}", method = RequestMethod.GET)
+	public ModelAndView home(@PathVariable(value = "examId") long examId){
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		
 		User user = userService.findUserByEmail(auth.getName());
-		List<Question> questions = examService.getQuestions(user.getId());
+		List<Question> questions = examService.getQuestions(examId, user.getId());
 		
 		modelAndView.addObject("userName", "Welcome " + user.getFirstName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
 		System.out.println(questions);

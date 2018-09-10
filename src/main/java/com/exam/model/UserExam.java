@@ -20,10 +20,10 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "user_answer")
-public class UserAnswer implements Serializable {
+@Table(name = "user_exam")
+public class UserExam implements Serializable {
 
-	private static final long serialVersionUID = -1627439495736989847L;
+	private static final long serialVersionUID = 309190045747627912L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,14 +34,21 @@ public class UserAnswer implements Serializable {
 	private User user;
 
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "exam_id")
+	private Exam exam;
+
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "question_id")
 	private Question question;
 
-	@Column(name = "answer_option")
+	@Column(name = "answer")
 	@Enumerated(EnumType.STRING)
 	private AnswerOption answerOption;
-
-	protected UserAnswer() {
+	
+	@Column(name = "test_series")
+	private int testSeries;
+	
+	protected UserExam() {
 	}
 
 	/**
@@ -52,8 +59,7 @@ public class UserAnswer implements Serializable {
 	}
 
 	/**
-	 * @param id
-	 *            the id to set
+	 * @param id the id to set
 	 */
 	public void setId(long id) {
 		this.id = id;
@@ -67,11 +73,24 @@ public class UserAnswer implements Serializable {
 	}
 
 	/**
-	 * @param user
-	 *            the user to set
+	 * @param user the user to set
 	 */
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	/**
+	 * @return the exam
+	 */
+	public Exam getExam() {
+		return exam;
+	}
+
+	/**
+	 * @param exam the exam to set
+	 */
+	public void setExam(Exam exam) {
+		this.exam = exam;
 	}
 
 	/**
@@ -82,8 +101,7 @@ public class UserAnswer implements Serializable {
 	}
 
 	/**
-	 * @param question
-	 *            the question to set
+	 * @param question the question to set
 	 */
 	public void setQuestion(Question question) {
 		this.question = question;
@@ -97,24 +115,41 @@ public class UserAnswer implements Serializable {
 	}
 
 	/**
-	 * @param answerOption
-	 *            the answerOption to set
+	 * @param answerOption the answerOption to set
 	 */
 	public void setAnswerOption(AnswerOption answerOption) {
 		this.answerOption = answerOption;
 	}
 
+	/**
+	 * @return the testSeries
+	 */
+	public int getTestSeries() {
+		return testSeries;
+	}
+
+	/**
+	 * @param testSeries the testSeries to set
+	 */
+	public void setTestSeries(int testSeries) {
+		this.testSeries = testSeries;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("UserAnswer [id=");
+		builder.append("UserExam [id=");
 		builder.append(id);
 		builder.append(", user=");
 		builder.append(user);
+		builder.append(", exam=");
+		builder.append(exam);
 		builder.append(", question=");
 		builder.append(question);
 		builder.append(", answerOption=");
 		builder.append(answerOption);
+		builder.append(", testSeries=");
+		builder.append(testSeries);
 		builder.append("]");
 		return builder.toString();
 	}

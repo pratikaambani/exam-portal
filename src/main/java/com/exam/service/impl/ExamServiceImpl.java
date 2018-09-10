@@ -23,8 +23,8 @@ public class ExamServiceImpl implements ExamService {
 	private QuestionRepository questionRepo;
 	
 	@Override
-	public List<Question> getQuestions(long userId){
-		List<Question> questions = questionRepo.getQuestions(userId);
+	public List<Question> getQuestions(long userId, long examId){
+		List<Question> questions = questionRepo.getQuestions(userId, examId);
 		return questions;
 	}
 }

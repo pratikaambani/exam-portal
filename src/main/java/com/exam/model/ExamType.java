@@ -7,6 +7,7 @@ package com.exam.model;
  * @author Tejas
  *
  */
-public enum AnswerOption {
-	A, B, C, D, NA 
+public enum ExamType {
+
+	TAT, TET, DySO, GPSC_CLASS_1,GPSC_CLASS_2,PSI,PI
 }

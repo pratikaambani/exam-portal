@@ -13,5 +13,5 @@ import com.exam.model.Question;
  */
 public interface ExamService {
 
-	public List<Question> getQuestions(long userId);
+	List<Question> getQuestions(long userId, long examId);
 }
