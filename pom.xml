@@ -6,7 +6,7 @@
 	<groupId>com.exam</groupId>
 	<artifactId>exam-portal</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>exam-portal</name>
 	<description>Main Application</description>
@@ -63,6 +63,25 @@
 			<version>1.9.21</version><!--$NO-MVN-MAN-VER$-->
 		</dependency>
 		
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>3.3.7</version>
+        </dependency>
+        
+        
 	</dependencies>
 	
 	<build>
