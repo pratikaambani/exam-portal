@@ -1,6 +1,6 @@
 package com.exam.service;
 
-import com.exam.model.User;
+import com.exam.model.users.User;
 
 /**
  * 
@@ -8,17 +8,24 @@ import com.exam.model.User;
  *
  */
 public interface UserService {
-	
+
 	/**
 	 * 
 	 * @param email
 	 * @return
 	 */
 	public User findUserByEmail(String email);
-	
+
 	/**
 	 * 
 	 * @param user
 	 */
 	public void saveUser(User user);
+
+	/**
+	 * 
+	 * @param user
+	 * @return
+	 */
+	public int updateEmailVerification(String email);
 }

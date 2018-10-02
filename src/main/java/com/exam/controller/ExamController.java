@@ -2,8 +2,6 @@ package com.exam.controller;
 
 import java.util.List;
 
-import javax.websocket.server.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
@@ -16,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.exam.model.Question;
-import com.exam.model.User;
+import com.exam.model.users.User;
 import com.exam.service.ExamService;
 import com.exam.service.UserService;
 
@@ -41,18 +39,18 @@ public class ExamController {
 		//return null;
 	}
 	
-	@RequestMapping(value="/admin/questions/{examId}", method = RequestMethod.GET)
-	public ModelAndView home(@PathVariable(value = "examId") long examId){
+	@RequestMapping(value="/index", method = RequestMethod.GET)
+	public ModelAndView home(){
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		
 		User user = userService.findUserByEmail(auth.getName());
-		List<Question> questions = examService.getQuestions(examId, user.getId());
+	//	List<Question> questions = examService.getQuestions(examId, user.getId());
 		
-		modelAndView.addObject("userName", "Welcome " + user.getFirstName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
-		System.out.println(questions);
-		modelAndView.addObject("questions", questions);
-		modelAndView.setViewName("admin/questions");
+		modelAndView.addObject("userName", "Welcome " + user.getFirstName() + " " + user.getLastName());
+		//System.out.println(questions);
+		//modelAndView.addObject("questions", questions);
+		modelAndView.setViewName("index");
 		return modelAndView;
 	}
 	
